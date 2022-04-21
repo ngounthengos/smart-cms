@@ -1,0 +1,15 @@
+super: true
+name: ngounthengos
+avatar: default.png
+id: 2a8f9ad0-8ba3-4252-b2bb-5024d9d22b2b
+password_hash: $2y$10$DM9zXFbBwAXZtt2EmRuhsOSQKvXRC44ML3wlp6sbTG9NJeQbJeNzW
+preferences:
+  collections:
+    devices:
+      columns:
+        - title
+        - brand
+        - available_color
+        - device_option
+        - slug
+      after_save: continue_editing

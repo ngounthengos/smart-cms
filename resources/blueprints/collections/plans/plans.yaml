@@ -1,0 +1,174 @@
+title: Plans
+sections:
+  main:
+    display: Head
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          localizable: true
+          validate:
+            - required
+      -
+        handle: sub_title
+        field:
+          input_type: text
+          antlers: false
+          display: 'Sub Title'
+          type: text
+          icon: text
+          listable: hidden
+          localizable: true
+          instructions_position: above
+          read_only: false
+      -
+        handle: cover_image
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          display: 'Cover Image'
+          type: assets
+          icon: assets
+          listable: hidden
+          localizable: true
+          instructions_position: above
+          read_only: false
+      -
+        handle: select_field
+        field:
+          options:
+            HTML: null
+            Table: null
+          multiple: false
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          display: 'Select Field'
+          type: select
+          icon: select
+          listable: hidden
+          localizable: true
+          instructions_position: above
+          read_only: false
+      -
+        handle: code_field
+        field:
+          theme: material
+          mode: htmlmixed
+          mode_selectable: false
+          indent_type: tabs
+          indent_size: 4
+          key_map: default
+          line_numbers: true
+          line_wrapping: true
+          display: HTML
+          type: code
+          icon: code
+          listable: hidden
+          localizable: true
+          instructions_position: above
+          read_only: false
+          if:
+            select_field: 'contains HTML'
+      -
+        handle: table_field
+        field:
+          display: 'Table Field'
+          type: table
+          icon: table
+          listable: hidden
+          localizable: true
+          instructions_position: above
+          read_only: false
+          if:
+            select_field: 'contains Table'
+      -
+        handle: bard_field
+        field:
+          always_show_set_button: false
+          buttons:
+            - h2
+            - h3
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - table
+            - h1
+            - h4
+            - h5
+            - h6
+            - underline
+            - strikethrough
+            - superscript
+            - subscript
+            - code
+            - codeblock
+            - horizontalrule
+          container: assets
+          save_html: true
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: 'Bard Field'
+          type: bard
+          icon: bard
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: author
+        field:
+          type: users
+          display: Author
+          default: current
+          localizable: true
+          max_items: 1
+      -
+        handle: top_up
+        field:
+          default: false
+          display: 'Top Up'
+          type: toggle
+          icon: toggle
+          listable: hidden
+          localizable: true
+          instructions_position: above
+          read_only: false
+      -
+        handle: newsletter
+        field:
+          default: false
+          display: Newsletter
+          type: toggle
+          icon: toggle
+          localizable: true
+          listable: hidden
+          instructions_position: above
+          read_only: false

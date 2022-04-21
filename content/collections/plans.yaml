@@ -1,0 +1,10 @@
+title: Plans
+sites:
+  - default
+  - km
+propagate: false
+template: plans/show
+revisions: false
+date_behavior:
+  past: public
+  future: private
