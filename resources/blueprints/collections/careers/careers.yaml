@@ -9,38 +9,30 @@ sections:
           required: true
           validate:
             - required
-          display: Title
-          instructions_position: above
-          listable: hidden
-          read_only: false
-          input_type: text
-          antlers: false
       -
         handle: information
         field:
-          collapse: true
+          collapse: false
           sets:
-            '':
-              display: null
+            item:
+              display: Item
               fields:
                 -
                   handle: title
                   field:
                     input_type: text
                     antlers: false
-                    display: title
+                    display: Title
                     type: text
                     icon: text
                     listable: hidden
                     instructions_position: above
                     read_only: false
                 -
-                  handle: bard_field
+                  handle: text
                   field:
                     always_show_set_button: false
                     buttons:
-                      - h2
-                      - h3
                       - bold
                       - italic
                       - unorderedlist
@@ -50,6 +42,9 @@ sections:
                       - anchor
                       - image
                       - table
+                      - code
+                      - codeblock
+                    container: assets
                     save_html: false
                     toolbar_mode: fixed
                     link_noopener: false
@@ -61,7 +56,7 @@ sections:
                     enable_input_rules: true
                     enable_paste_rules: true
                     antlers: false
-                    display: 'Bard Field'
+                    display: Text
                     type: bard
                     icon: bard
                     listable: hidden
@@ -70,6 +65,7 @@ sections:
           display: Information
           type: replicator
           icon: replicator
+          instructions: Information
           listable: hidden
           instructions_position: above
           read_only: false
@@ -81,19 +77,6 @@ sections:
         field:
           type: slug
           localizable: true
-      -
-        handle: regions
-        field:
-          mode: select
-          create: false
-          collections:
-            - provinces
-          display: Regions
-          type: entries
-          icon: entries
-          listable: hidden
-          instructions_position: above
-          read_only: false
       -
         handle: deadline
         field:
@@ -111,25 +94,38 @@ sections:
           instructions_position: above
           read_only: false
       -
-        handle: position
-        field:
-          display: Position
-          type: integer
-          icon: integer
-          listable: hidden
-          instructions_position: above
-          read_only: false
-      -
         handle: sector
         field:
           max_items: 1
           mode: select
-          create: true
-          collections:
-            - sectors
+          create: false
           display: Sector
           type: entries
           icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          collections:
+            - sectors
+      -
+        handle: job_locations
+        field:
+          mode: select
+          create: false
+          display: 'Job Locations'
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false
+          collections:
+            - provinces
+      -
+        handle: postions
+        field:
+          display: Postions
+          type: integer
+          icon: integer
           listable: hidden
           instructions_position: above
           read_only: false

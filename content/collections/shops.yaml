@@ -1,9 +1,0 @@
-title: Shops
-sites:
-  - default
-  - km
-propagate: false
-revisions: false
-date_behavior:
-  past: public
-  future: private

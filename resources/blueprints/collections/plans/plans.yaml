@@ -1,64 +1,82 @@
-title: Plans
 sections:
   main:
-    display: Head
+    display: Main
     fields:
       -
         handle: title
         field:
           type: text
           required: true
-          localizable: true
           validate:
             - required
       -
-        handle: sub_title
+        handle: subtitle
         field:
           input_type: text
           antlers: false
-          display: 'Sub Title'
+          display: Subtitle
           type: text
           icon: text
           listable: hidden
-          localizable: true
           instructions_position: above
           read_only: false
       -
-        handle: cover_image
+        handle: body
         field:
-          mode: list
+          always_show_set_button: false
+          buttons:
+            - bold
+            - italic
+            - unorderedlist
+            - orderedlist
+            - removeformat
+            - quote
+            - anchor
+            - image
+            - code
+            - codeblock
           container: assets
-          restrict: false
-          allow_uploads: true
-          show_filename: true
-          display: 'Cover Image'
-          type: assets
-          icon: assets
+          save_html: false
+          toolbar_mode: fixed
+          link_noopener: false
+          link_noreferrer: false
+          target_blank: false
+          link_collections:
+            - plans
+            - devices
+          reading_time: false
+          fullscreen: true
+          allow_source: true
+          enable_input_rules: true
+          enable_paste_rules: true
+          antlers: false
+          display: Body
+          type: bard
+          icon: bard
           listable: hidden
-          localizable: true
           instructions_position: above
           read_only: false
       -
-        handle: select_field
+        handle: table_template
         field:
           options:
             HTML: null
-            Table: null
+            Card: null
           multiple: false
+          max_items: 1
           clearable: false
           searchable: true
           taggable: false
           push_tags: false
           cast_booleans: false
-          display: 'Select Field'
+          display: 'Table Template'
           type: select
           icon: select
           listable: hidden
-          localizable: true
           instructions_position: above
           read_only: false
       -
-        handle: code_field
+        handle: table_html
         field:
           theme: material
           mode: htmlmixed
@@ -68,69 +86,226 @@ sections:
           key_map: default
           line_numbers: true
           line_wrapping: true
-          display: HTML
+          display: 'Table HTML'
           type: code
           icon: code
           listable: hidden
-          localizable: true
           instructions_position: above
           read_only: false
           if:
-            select_field: 'contains HTML'
+            table_template: 'equals HTML'
       -
-        handle: table_field
+        handle: table_card
         field:
-          display: 'Table Field'
-          type: table
-          icon: table
+          collapse: true
+          sets:
+            option:
+              display: Option
+              fields:
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                    width: 50
+                -
+                  handle: subtitle
+                  field:
+                    antlers: false
+                    display: Subtitle
+                    type: textarea
+                    icon: textarea
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                    width: 50
+                -
+                  handle: benefits
+                  field:
+                    collapse: false
+                    sets:
+                      item:
+                        display: Item
+                        fields:
+                          -
+                            handle: row
+                            field:
+                              input_type: text
+                              antlers: false
+                              display: Row
+                              type: text
+                              icon: text
+                              listable: hidden
+                              instructions_position: above
+                              read_only: false
+                          -
+                            handle: text
+                            field:
+                              input_type: text
+                              antlers: false
+                              display: Text
+                              type: text
+                              icon: text
+                              listable: hidden
+                              instructions_position: above
+                              read_only: false
+                          -
+                            handle: notice
+                            field:
+                              input_type: text
+                              antlers: false
+                              display: Notice
+                              type: text
+                              icon: text
+                              listable: hidden
+                              instructions_position: above
+                              read_only: false
+                    display: Benefits
+                    type: replicator
+                    icon: replicator
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: ussd
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: USSD
+                    type: text
+                    icon: text
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: smartnas
+                  field:
+                    default: false
+                    display: SmartNas
+                    type: toggle
+                    icon: toggle
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: 'Table Card'
+          type: replicator
+          icon: replicator
           listable: hidden
-          localizable: true
           instructions_position: above
           read_only: false
           if:
-            select_field: 'contains Table'
+            table_template: 'equals Card'
       -
-        handle: bard_field
+        handle: instructions
         field:
-          always_show_set_button: false
-          buttons:
-            - h2
-            - h3
-            - bold
-            - italic
-            - unorderedlist
-            - orderedlist
-            - removeformat
-            - quote
-            - anchor
-            - image
-            - table
-            - h1
-            - h4
-            - h5
-            - h6
-            - underline
-            - strikethrough
-            - superscript
-            - subscript
-            - code
-            - codeblock
-            - horizontalrule
-          container: assets
-          save_html: true
-          toolbar_mode: fixed
-          link_noopener: false
-          link_noreferrer: false
-          target_blank: false
-          reading_time: false
-          fullscreen: true
-          allow_source: true
-          enable_input_rules: true
-          enable_paste_rules: true
-          antlers: false
-          display: 'Bard Field'
-          type: bard
-          icon: bard
+          collapse: false
+          sets:
+            item:
+              display: Item
+              fields:
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: text
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Text
+                    type: text
+                    icon: text
+                    width: 50
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: Instructions
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: more
+        field:
+          collapse: false
+          sets:
+            item:
+              display: Item
+              fields:
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                    width: 75
+                -
+                  handle: collapsible
+                  field:
+                    default: false
+                    display: Collapsible
+                    type: toggle
+                    icon: toggle
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: text
+                  field:
+                    always_show_set_button: false
+                    buttons:
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - removeformat
+                      - image
+                      - table
+                      - codeblock
+                    save_html: false
+                    toolbar_mode: fixed
+                    link_noopener: false
+                    link_noreferrer: false
+                    target_blank: false
+                    reading_time: false
+                    fullscreen: true
+                    allow_source: true
+                    enable_input_rules: true
+                    enable_paste_rules: true
+                    antlers: false
+                    display: Text
+                    type: bard
+                    icon: bard
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                    container: assets
+          display: More
+          type: replicator
+          icon: replicator
           listable: hidden
           instructions_position: above
           read_only: false
@@ -143,32 +318,85 @@ sections:
           type: slug
           localizable: true
       -
+        handle: template
+        field:
+          max_items: 1
+          mode: select
+          create: false
+          collections:
+            - templates
+          display: Template
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
         handle: author
         field:
-          type: users
+          mode: select
           display: Author
-          default: current
-          localizable: true
+          type: users
+          icon: users
+          listable: hidden
+          instructions_position: above
+          read_only: false
           max_items: 1
       -
-        handle: top_up
+        handle: featured_image
         field:
-          default: false
-          display: 'Top Up'
-          type: toggle
-          icon: toggle
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Featured Image'
+          type: assets
+          icon: assets
           listable: hidden
-          localizable: true
+          instructions_position: above
+          read_only: false
+  relevance:
+    display: Relevance
+    fields:
+      -
+        handle: faqs
+        field:
+          mode: select
+          create: false
+          collections:
+            - faqs
+          display: FAQs
+          type: entries
+          icon: entries
+          listable: hidden
           instructions_position: above
           read_only: false
       -
-        handle: newsletter
+        handle: devices
         field:
-          default: false
-          display: Newsletter
-          type: toggle
-          icon: toggle
-          localizable: true
+          mode: select
+          create: false
+          collections:
+            - devices
+          display: Devices
+          type: entries
+          icon: entries
           listable: hidden
           instructions_position: above
           read_only: false
+      -
+        handle: services
+        field:
+          mode: select
+          create: false
+          collections:
+            - services
+          display: Services
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false
+title: Plans

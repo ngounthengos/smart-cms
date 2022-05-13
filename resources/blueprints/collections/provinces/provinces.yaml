@@ -9,7 +9,6 @@ sections:
           required: true
           validate:
             - required
-          localizable: true
   sidebar:
     display: Sidebar
     fields:

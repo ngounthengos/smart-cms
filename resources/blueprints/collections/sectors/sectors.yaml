@@ -10,7 +10,6 @@ sections:
           validate:
             - required
   sidebar:
-    display: Sidebar
     fields:
       -
         handle: slug

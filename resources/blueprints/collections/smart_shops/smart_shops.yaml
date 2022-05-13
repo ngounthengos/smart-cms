@@ -1,0 +1,109 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: latitude
+        field:
+          display: Latitude
+          type: float
+          icon: float
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: longitude
+        field:
+          display: Longitude
+          type: float
+          icon: float
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: address
+        field:
+          antlers: false
+          display: Address
+          type: textarea
+          icon: textarea
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: google_map
+        field:
+          input_type: text
+          antlers: false
+          display: 'Google Map'
+          type: text
+          icon: text
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: working_hours
+        field:
+          collapse: false
+          sets:
+            item:
+              display: Item
+              fields:
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: text
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Text
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: 'Working Hours'
+          type: replicator
+          icon: replicator
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  sidebar:
+    display: Sidebar
+    fields:
+      -
+        handle: slug
+        field:
+          type: slug
+          localizable: true
+      -
+        handle: entries_field
+        field:
+          max_items: 1
+          mode: select
+          create: false
+          collections:
+            - provinces
+          display: Province
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false
+title: 'Smart Shops'

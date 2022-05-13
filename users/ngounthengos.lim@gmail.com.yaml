@@ -1,15 +1,16 @@
 super: true
 name: ngounthengos
-avatar: default.png
-id: 2a8f9ad0-8ba3-4252-b2bb-5024d9d22b2b
-password_hash: $2y$10$DM9zXFbBwAXZtt2EmRuhsOSQKvXRC44ML3wlp6sbTG9NJeQbJeNzW
+id: 48900ce7-a050-429b-bb0d-9c6f6a8167fc
+password_hash: $2y$10$tFDhJv0YcbaYbENISCSC2utTdDFE8whwa4nZD/8O0ZK3lXRrGB3My
 preferences:
   collections:
-    devices:
-      columns:
-        - title
-        - brand
-        - available_color
-        - device_option
-        - slug
-      after_save: continue_editing
+    provinces:
+      after_save: create_another
+    brands:
+      after_save: create_another
+    sectors:
+      after_save: create_another
+    servicecategory:
+      after_save: create_another
+    templates:
+      after_save: create_another

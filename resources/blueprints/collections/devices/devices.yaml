@@ -2,171 +2,191 @@ sections:
   main:
     display: Main
     fields:
-      - handle: title
+      -
+        handle: title
         field:
           type: text
           required: true
           validate:
             - required
-          display: "Device Name"
-          instructions_position: above
-          listable: hidden
-          read_only: false
-          input_type: text
-          antlers: false
-          localizable: true
-      - handle: available_color
+      -
+        handle: colors
         field:
-          collapse: true
+          collapse: false
           sets:
-            "":
-              display: null
+            item:
+              display: Item
               fields:
-                - handle: color_name
+                -
+                  handle: name
                   field:
                     input_type: text
                     antlers: false
-                    display: "Color Name"
+                    display: Name
                     type: text
                     icon: text
                     listable: hidden
                     instructions_position: above
                     read_only: false
-                    width: 25
-                - handle: color_code
+                -
+                  handle: code
                   field:
                     theme: classic
                     lock_opacity: false
                     default_color_mode: HEXA
                     color_modes:
                       - hex
-                    display: "Color Code"
+                    display: Code
                     type: color
                     icon: color
                     listable: hidden
                     instructions_position: above
                     read_only: false
-                    width: 25
-          display: "Available Color"
+          display: Colors
           type: replicator
           icon: replicator
           listable: hidden
           instructions_position: above
           read_only: false
-          localizable: true
-      - handle: device_option
+      -
+        handle: device_options
         field:
           collapse: true
           sets:
-            "":
-              display: null
+            option:
+              display: Option
               fields:
-                - handle: storage
+                -
+                  handle: title
                   field:
                     input_type: text
                     antlers: false
-                    display: Storage
+                    display: Title
                     type: text
                     icon: text
                     listable: hidden
                     instructions_position: above
                     read_only: false
-                - handle: monthly_installment
+                -
+                  handle: price
                   field:
-                    display: "Monthly Installment"
+                    display: Price
                     type: integer
                     icon: integer
-                    width: 50
+                    width: 25
                     listable: hidden
                     instructions_position: above
                     read_only: false
-                - handle: one_time_fee
+                -
+                  handle: 6m_installment
                   field:
-                    display: "One Time Fee"
+                    display: '6M Installment'
                     type: integer
                     icon: integer
-                    width: 50
+                    width: 25
                     listable: hidden
                     instructions_position: above
                     read_only: false
-                - handle: free_sim
+                -
+                  handle: 12m_installment
+                  field:
+                    display: '12M Installment'
+                    type: integer
+                    icon: integer
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: 24m_installment
+                  field:
+                    display: '24M Installment'
+                    type: integer
+                    icon: integer
+                    width: 25
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: free_sim
                   field:
                     options:
-                      "Sliver ": null
-                      Iron: null
-                      Brone: null
+                      Platinum: null
+                      Silver: null
+                      'Bronze ': null
                       Standard: null
                     multiple: false
+                    max_items: 1
                     clearable: false
                     searchable: true
                     taggable: false
                     push_tags: false
                     cast_booleans: false
-                    display: "Free SIM"
-                    type: select
-                    icon: select
-                    listable: hidden
-                    instructions_position: above
-                    read_only: false
-                - handle: free_plan
-                  field:
-                    options:
-                      "Smart ThomMorng!": null
-                    multiple: false
-                    clearable: false
-                    searchable: true
-                    taggable: true
-                    push_tags: false
-                    cast_booleans: false
-                    display: "Free Plan"
+                    display: 'FREE SIM'
                     type: select
                     icon: select
                     width: 50
                     listable: hidden
                     instructions_position: above
                     read_only: false
-                - handle: weeks
+                -
+                  handle: free_smart_thommorng
                   field:
-                    display: Weeks
+                    display: 'FREE Smart ThomMorng!'
                     type: integer
                     icon: integer
                     width: 50
                     listable: hidden
                     instructions_position: above
                     read_only: false
-          display: "Device Option"
+                -
+                  handle: deeplink
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Deeplink
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+          display: 'Device Options'
           type: replicator
           icon: replicator
           listable: hidden
           instructions_position: above
           read_only: false
-          localizable: true
-      - handle: information
+      -
+        handle: information
         field:
           collapse: false
           sets:
-            "":
-              display: null
+            item:
+              display: Item
               fields:
-                - handle: title
+                -
+                  handle: title
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Title
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    read_only: false
+                -
+                  handle: text
                   field:
                     antlers: false
-                    display: title
+                    display: Text
                     type: textarea
                     icon: textarea
                     listable: hidden
                     instructions_position: above
                     read_only: false
-                - handle: paragraph
-                  field:
-                    antlers: false
-                    display: Paragraph
-                    type: textarea
-                    icon: textarea
-                    listable: hidden
-                    instructions_position: above
-                    read_only: false
-                - handle: images
+                -
+                  handle: images
                   field:
                     mode: list
                     container: assets
@@ -176,16 +196,6 @@ sections:
                     display: Images
                     type: assets
                     icon: assets
-                    width: 50
-                    listable: hidden
-                    instructions_position: above
-                    read_only: false
-                - handle: videos
-                  field:
-                    display: Videos
-                    type: video
-                    icon: video
-                    width: 50
                     listable: hidden
                     instructions_position: above
                     read_only: false
@@ -195,18 +205,20 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
-          localizable: true
   sidebar:
     display: Sidebar
     fields:
-      - handle: slug
+      -
+        handle: slug
         field:
           type: slug
           localizable: true
-      - handle: brand
+      -
+        handle: brand
         field:
-          mode: select
-          create: false
+          max_items: 1
+          mode: default
+          create: true
           collections:
             - brands
           display: Brand
@@ -215,6 +227,48 @@ sections:
           listable: hidden
           instructions_position: above
           read_only: false
-          max_items: 1
-          localizable: true
+      -
+        handle: featured_image
+        field:
+          mode: list
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Featured Image'
+          type: assets
+          icon: assets
+          listable: hidden
+          instructions_position: above
+          read_only: false
+  relevance:
+    display: Relevance
+    fields:
+      -
+        handle: relevant_devices
+        field:
+          mode: default
+          create: false
+          collections:
+            - devices
+          display: 'Relevant Devices'
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false
+      -
+        handle: relevant_plans
+        field:
+          mode: default
+          create: false
+          collections:
+            - plans
+          display: 'Relevant Plans'
+          type: entries
+          icon: entries
+          listable: hidden
+          instructions_position: above
+          read_only: false
 title: Devices
